@@ -40,7 +40,7 @@ function partieSelected1(){
   headerSelector.innerHTML="Partie 1: Manipulation et opérations sur les mots"
 
   //write partie 1 énoncé
-  enonce.innerHTML='<h4><strong><u>énoncé:</u></strong></h4><p>Soit lalphabet T={a, b, c}, écrire un programme paramétré qui permet de :</p><p>1) Générer le mot miroir d’un mot quelconque de T*. Ce mot sera donné en entrée à votre programme.</p>';
+  enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit l\'alphabet T={a, b, c}, écrire un programme paramétré qui permet de :</p><p>1) Générer le mot miroir d’un mot quelconque de T*. Ce mot sera donné en entrée à votre programme.</p>';
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-text" class="form-control" placeholder="Entrez le mot..."><button type="submit" id="inverse-button" class="btn btn-outline-secondary" title="Générer le mot mirroir">Générer</button>';
   enonce.innerHTML+='<p>2) Générer la puissance n d’un mot quelconque de T*. Le mot et la valeur de n seront donnés en entrée à votre programme.</p>';
   enonce.innerHTML+='<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="">Entrez Le mot et la puissance</span></div><input type="text" id="puissance-input-text"class="form-control" placeholder="Entrez le mot..."><input type="text" id="puissance-input-puiss"class="form-control"placeholder="Entrez la puissance..."><button type="submit" id="puiss-button" class="btn btn-outline-secondary" title="Générer la puissance du mot">Générer</button></div>';
@@ -121,7 +121,7 @@ if(document.getElementById('puissance-input-text').value!="" && document.getElem
 
 function partieSelected2(){
   headerSelector.innerHTML="Partie 2 : Langage et grammaires"
-  enonce.innerHTML='<h4><strong><u>énoncé:</u></strong></h4><p>Soit un langage L(G) généré par la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b} N={S, A, B, C}</p><p>P : S→AB</p><p>A→aA/bA/ab</p><p>B→bC</p><p>C→aC/bC/ɛ</p><p>Question : Ecrire un programme paramétré qui permet de générer tous les mots de L(G) d’une longueur donnée n (n ≥ 0). Lors de l’évaluation, l’enseignant fixera en entrée n, votre programme devra alorsgénérer tous les mots de L(G) de longueur n.</p>';
+  enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit un langage L(G) généré par la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b} N={S, A, B, C}</p><p>P : S→AB</p><p>A→aA/bA/ab</p><p>B→bC</p><p>C→aC/bC/ɛ</p><p>Question : Ecrire un programme paramétré qui permet de générer tous les mots de L(G) d’une longueur donnée n (n ≥ 0). Lors de l’évaluation, l’enseignant fixera en entrée n, votre programme devra alors générer tous les mots de L(G) de longueur n.</p>';
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-taille" class="form-control" placeholder="entrez la taille des mots..."><button type="submit" id="partie2-button" class="btn btn-outline-secondary">Générer</button></div></label>';
   
   document.getElementById('output-area').innerHTML='<div class="form-group" " style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area2" rows="9"readonly></textarea></div>';
@@ -210,7 +210,7 @@ function partieSelected2(){
 function partieSelected3(){
   headerSelector.innerHTML="Partie 3 : Analyseur syntaxique"
 
-  enonce.innerHTML='<h4><strong><u>énoncé:</u></strong></h4><p>Soit la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b} N={S} P={S→aaSb/Sa/ɛ}</p><p>Question : Ecrire un programme paramétré qui, étant donné un mot quelconque en entrée, vérifie si ce mot appartient au langage L(G). On supposera que ce mot est lexicalement correct, c’est-à-dire qu’il ne comporte que des éléments de l’ensemble T. Lors de l’évaluation, l’enseignant donnera en entrée un mot quelconque et votre programme doit permettre de vérifier si le mot est syntaxiquement correct.</p>'
+  enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b} N={S} P={S→aaSb/Sa/ɛ}</p><p>Question : Ecrire un programme paramétré qui, étant donné un mot quelconque en entrée, vérifie si ce mot appartient au langage L(G). On supposera que ce mot est lexicalement correct, c’est-à-dire qu’il ne comporte que des éléments de l’ensemble T. Lors de l’évaluation, l’enseignant donnera en entrée un mot quelconque et votre programme doit permettre de vérifier si le mot est syntaxiquement correct.</p>'
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-text3" class="form-control" placeholder="entrez le mot..."><button type="submit" id="partie3-button" class="btn btn-outline-secondary">Générer</button></div></label>';
 
   document.getElementById('output-area').innerHTML='<div class="form-group" style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area3" rows="9"readonly></textarea></div>';
@@ -284,6 +284,9 @@ function partieSelected3(){
     } else {
       document.getElementById('output-area3').value =("Le mot \t" + param + "\t n'appartient pas au langage");
     }
+  }else{
+    document.getElementById('output-area3').value = "Le mot \tε\tappartient au langage";
+
   }
 
 

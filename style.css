@@ -10,7 +10,11 @@ nav{
     justify-content:center;
     background-color: #08081A;
 }
-
+/*
+rounded corners for selceted tab 
+tab separations 
+tabline 
+*/
 nav a{
     /* padding: 20px;
     margin: 20px; */
