@@ -117,42 +117,79 @@ function partieSelected2(){
   enonce.innerHTML='<h4><strong><u>énoncé:</u></strong></h4><p>Soit un langage L(G) généré par la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b} N={S, A, B, C}</p><p>P : S→AB</p><p>A→aA/bA/ab</p><p>B→bC</p><p>C→aC/bC/ɛ</p><p>Question : Ecrire un programme paramétré qui permet de générer tous les mots de L(G) d’une longueur donnée n (n ≥ 0). Lors de l’évaluation, l’enseignant fixera en entrée n, votre programme devra alorsgénérer tous les mots de L(G) de longueur n.</p>';
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-taille" class="form-control" placeholder="entrez la taille des mots..."><button type="submit" id="partie2-button" class="btn btn-outline-secondary">Générer</button></div></label>';
   
-  document.getElementById('output-area').innerHTML='<div class="form-group" " style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area" rows="9"readonly></textarea></div>';
+  document.getElementById('output-area').innerHTML='<div class="form-group" " style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area2" rows="9"readonly></textarea></div>';
   
   //    o.appendChild(document.createTextNode('\u025B')); // epsilon
   //if (~str.indexOf("abb")) to check if abb is contained within the word
 
   document.getElementById('partie2-button').addEventListener("click", function testPartie2Entier(){
+
     let taille = document.getElementById('input-taille').value;
-    document.getElementById('output-area').value ='';
+    document.getElementById('output-area2').value ='';
     document.getElementById('alert-container').innerHTML = '';
   
-  if(taille != ""){
+   if(taille != ""){
     
     if(taille.match(/[^0-9]/g ) == null){
 
-      if(taille > 0){
+      if(taille >= 3 && taille <= 14){
+        ///////////implementation START
+        let startPoint="abb";
+        let lengthreduction = 3;
+        let numberOfWords = 0;
         
-        //WRITE CODE HERE
+        if (taille == lengthreduction){
+          document.getElementById('output-area2').value +='Le seul mot appartenant au langage ayant une longueur de 3 est : \tabb';
+        }else if (taille > lengthreduction){
+          let modelX ="x";
+          for (let i=1;i<taille-lengthreduction+1;i++){
+            modelX +="x";
+          }
+          for (let i=1;i<taille-lengthreduction+1;i++){
+            let newModelX = modelX.substring(0,i)+startPoint+modelX.substring(i+1);
+            recurse(newModelX, 'a');
+            recurse(newModelX, 'b');
+          }
+          document.getElementById('output-area2').value += '\n\n\n Le nombre de mots est : '+numberOfWords+'\n';
+        }
+        function recurse(X,y){
+          let firstOccurrence = X.indexOf('x');
+          let newX = X.substring(0, firstOccurrence)+y+X.substring(firstOccurrence+1);
+  
+          let countOfx = 0;
+          for (let i = 0; i < newX.length; i++) {
+              if (newX.charAt(i) == 'x') {
+                  countOfx++;
+              }
+          }
+          if (countOfx >= 1) {
+              recurse(newX, 'a');
+              recurse(newX, 'b');
+          }
+          else if (countOfx == 0) {
+              numberOfWords = numberOfWords + 1;
+              document.getElementById('output-area2').value += newX +'\t\t';
+
+          }
+        }
+        //implementation END
       
+      }else if(taille < 3){
+        document.getElementById('alert-container').innerHTML='<div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-radius:20px;margin: 5px;">La longueur du mot ne peut être inférieure à 3!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'; 
+        document.getElementById('output-area').value ='';      
+      }else if (taille > 14){       
+      document.getElementById('alert-container').innerHTML='<div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-radius:20px;margin: 5px;">La longueur du mot ne peut être supérieure à 14 (faute de ressources)!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'; 
+      document.getElementById('output-area').value =''; }
       }else{
-        document.getElementById('output-area').value = 'ε';
-      }
-    
-    }else{
-      document.getElementById('alert-container').innerHTML='<div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-radius:20px;margin: 5px;">Veuillez entrer un entier!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'; 
+      document.getElementById('alert-container').innerHTML='<div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-radius:20px;margin: 5px;">Veuillez entrer un entier >= 3!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'; 
       document.getElementById('output-area').value ='';
     }
   }else{
     document.getElementById('alert-container').innerHTML='<div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-radius:20px;margin: 5px;">Veuillez entrer un entier!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'; 
     document.getElementById('output-area').value ='';
   }
-
   });
-   
 
-    
-  
     document.getElementById('input-taille').addEventListener("keypress", function(even){
       // If the user presses the "Enter" key on the keyboard
       if (even.key === "Enter") {
@@ -167,11 +204,91 @@ function partieSelected3(){
   headerSelector.innerHTML="Partie 3 : Analyseur syntaxique"
 
   enonce.innerHTML='<h4><strong><u>énoncé:</u></strong></h4><p>Soit la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b} N={S} P={S→aaSb/Sa/ɛ}</p><p>Question : Ecrire un programme paramétré qui, étant donné un mot quelconque en entrée, vérifie si ce mot appartient au langage L(G). On supposera que ce mot est lexicalement correct, c’est-à-dire qu’il ne comporte que des éléments de l’ensemble T. Lors de l’évaluation, l’enseignant donnera en entrée un mot quelconque et votre programme doit permettre de vérifier si le mot est syntaxiquement correct.</p>'
-  enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-text3" class="form-control" placeholder="entrez le mot..."><button type="submit" id="alert-button" class="btn btn-outline-secondary">Générer</button></div></label>';
+  enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-text3" class="form-control" placeholder="entrez le mot..."><button type="submit" id="partie3-button" class="btn btn-outline-secondary">Générer</button></div></label>';
 
-  document.getElementById('output-area').innerHTML='<div class="form-group" " style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area" rows="9"readonly></textarea></div>';
+  document.getElementById('output-area').innerHTML='<div class="form-group" style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area3" rows="9"readonly></textarea></div>';
+  // IMPLEMENTATION START
+  document.getElementById('partie3-button').addEventListener("click", function testPartie3Mot(){
+
+  if (document.getElementById('input-text3').value!=""){
+    let startPoint = "S";
+    let toCheck = document.getElementById('input-text3').value;
+    let temp = startPoint;
+    /*
+     A constructor that initializes the string that needs to be checked, as well as the string which we will use in order to check the validity
+     of the former.
+    */
+    function checkString() {
+        let counter = 1;
+        while (temp.length < toCheck.length+1) {
+            if (toCheck.charAt(toCheck.length-counter) == 'b') {
+                temp = expandSOne(temp);
+            }
+            else if (toCheck.charAt(toCheck.length-counter) == 'a') {
+                temp = expandSTwo(temp);
+            }
+            else {
+                return false;
+            }
+            counter = counter + 1;
+        }
+        temp = sToEpsilon(temp);
+        if (temp == toCheck) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function expandSOne( S) {
+        let position = S.indexOf("S");
+        let toBeReturned ;
+        if (S == "S") {
+            toBeReturned = "aaSb";
+        }
+        else if (position == 0) {
+            toBeReturned = "aaSb" + S.substring(1);
+        }
+        else {
+            toBeReturned = S.substring(0,position) + "aaSb" + S.substring(position+1);
+        }
+        return toBeReturned;
+    }
+    function expandSTwo(S) {
+        let position = S.indexOf("S");
+        let toBeReturned = new String();
+        if (S == "S") {
+            toBeReturned = "Sa";
+        }
+        else if (position == 0) {
+            toBeReturned = "Sa" + S.substring(1);
+        }
+        else {
+            toBeReturned = S.substring(0,position) + "Sa" + S.substring(position+1);
+        }
+        return toBeReturned;
+    }
+    // A method for expanding S into epsilon
+    function sToEpsilon(S) {
+        return(S.replace("S", ""));
+    }
+    let param = document.getElementById('input-text3').value;    
+    if (checkString()) {
+      document.getElementById('output-area3').value = "Le mot \t" + param + "\t appartient au langage";
+    } else {
+      document.getElementById('output-area3').value =("Le mot \t" + param + "\t n'appartient pas au langage");
+    }
+  }
+
+
+});
+
+document.getElementById('input-text3').addEventListener("keypress", function(even){
+    // If the user presses the "Enter" key on the keyboard
+    if (even.key === "Enter") {
+      document.getElementById('partie3-button').click();
+    }
+  });
 }
-// 
 
 
 
