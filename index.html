@@ -8,16 +8,18 @@
         <link rel="stylesheet" href="style.css">
         <title>TP Théorie Des Langages</title>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist" style="width:100% ;">
-                <a class="nav-item nav-link active" id="nav-partie1-tab" data-toggle="tab" href="#nav-partie1" role="tab" aria-controls="nav-home" aria-selected="true">partie 1</a>
-                <a class="nav-item nav-link" id="nav-partie2-tab" data-toggle="tab" href="#nav-partie2" role="tab" aria-controls="nav-profile" aria-selected="false">partie 2</a>
-                <a class="nav-item nav-link" id="nav-partie3-tab" data-toggle="tab" href="#nav-partie3" role="tab" aria-controls="nav-contact" aria-selected="false">partie 3</a>
+                <a class="nav-item nav-link" id="nav-page-de-garde-tab" data-toggle="tab" href="#nav-page-de-garde" role="tab" aria-controls="nav-home" aria-selected="false">Page de garde</a>
+                <a class="nav-item nav-link" id="nav-partie1-tab" data-toggle="tab" href="#nav-partie1" role="tab" aria-controls="nav-home" aria-selected="false">Partie 1</a>
+                <a class="nav-item nav-link" id="nav-partie2-tab" data-toggle="tab" href="#nav-partie2" role="tab" aria-controls="nav-profile" aria-selected="false">Partie 2</a>
+                <a class="nav-item nav-link" id="nav-partie3-tab" data-toggle="tab" href="#nav-partie3" role="tab" aria-controls="nav-contact" aria-selected="false">Partie 3</a>
             </div>
 
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-partie1" role="tabpanel" aria-labelledby="nav-partie1-tab"><div class="partie1"></div></div>
+                <div class="tab-pane fade" id="nav-page-de-garde" role="tabpanel" aria-labelledby="nav-page-de-garde-tab"><div></div></div>
+                <div class="tab-pane fade" id="nav-partie1" role="tabpanel" aria-labelledby="nav-partie1-tab"><div class="partie1"></div></div>
                 <div class="tab-pane fade" id="nav-partie2" role="tabpanel" aria-labelledby="nav-partie2-tab"><div class="partie2"></div></div>
                 <div class="tab-pane fade" id="nav-partie3" role="tabpanel" aria-labelledby="nav-partie3-tab"><div class="partie3"></div></div>
             </div>
@@ -26,25 +28,18 @@
         <h2 id="partie" class="main-title" style="text-align: center;height: 100px;padding-top: 30px;">Projet de TP Théorie Des Languages</h2>
           
         <!-- container for inputs and texts -->
-        <div id="enonce" style="background-color: rgba(100, 100, 100, 0.3);padding: 20px;border-radius:20px;margin: 5px;">this is placeholder text...</div>
-
-
+        <div id="enonce" style="background-color: rgba(100, 100, 100, 0.3);padding: 20px;border-radius:20px;margin: 5px;">        <h4 >Membres :</h4>
+            <ul class="membre">
+                <li><pre style="color:black;">LAMARA Nabil          Groupe 1</pre></li>
+                <li><pre style="color:black;">ABDELHAFID Lamine     Groupe 1</pre></li>
+                <li><pre style="color:black;">LAYAIDA Samy          Groupe 1</pre></li>
+            </ul>
+        </div>
         <!--Container for the error messages-->
         <div id="alert-container"></div>
         
         <!--Container for the Outputs-->
         <div id="output-area"></div>
-
-
-    <footer>
-        <h4 >Membres :</h4>
-            <ul class="membre">
-                <li><pre style="color:white;">LAMARA Nabil          Groupe 1</pre></li>
-                <li><pre style="color:white;">ABDELHAFID Lamine     Groupe 1</pre></li>
-                <li><pre style="color:white;">LAYAIDA Samy          Groupe 1</pre></li>
-            </ul>
-    </footer>
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

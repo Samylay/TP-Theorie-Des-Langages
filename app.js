@@ -20,12 +20,19 @@ let enonce = document.getElementById('enonce');
 let headerSelector = document.getElementById("partie");
 
 //run the querySelector onclick */
+document.getElementById('nav-page-de-garde-tab').addEventListener("click",partieSelected0);
+
 document.getElementById('nav-partie1-tab').addEventListener("click",partieSelected1);
 
 document.getElementById('nav-partie2-tab').addEventListener("click",partieSelected2);
 
 document.getElementById('nav-partie3-tab').addEventListener("click",partieSelected3);
 
+////////////////////////////////////// PAGE DE GARDE ////////////////////////////////////////
+function partieSelected0(){
+  headerSelector.innerHTML='<h2 id="partie" class="main-title" style="text-align: center;height: 100px;padding-top: 30px;">Projet de TP Théorie Des Languages</h2>';
+  enonce.innerHTML = '<ul class="membre"><li><pre style="color:black;">LAMARA Nabil          Groupe 1</pre></li><li><pre style="color:black;">ABDELHAFID Lamine     Groupe 1</pre></li><li><pre style="color:black;">LAYAIDA Samy          Groupe 1</pre></li></ul>';
+}
 ////////////////////////////////////// PARTIE 1 ////////////////////////////////////////
 
 function partieSelected1(){
@@ -142,10 +149,10 @@ function partieSelected2(){
           document.getElementById('output-area2').value +='Le seul mot appartenant au langage ayant une longueur de 3 est : \tabb';
         }else if (taille > lengthreduction){
           let modelX ="x";
-          for (let i=0 ;i<taille-lengthreduction+1;i++){
+          for (let i = 0 ;i<taille-lengthreduction;i++){
             modelX +="x";
           }
-          for (let i=1;i<taille-lengthreduction+1;i++){
+          for (let i=0;i<taille-lengthreduction+1;i++){
             let newModelX = modelX.substring(0,i)+startPoint+modelX.substring(i+1);
             recurse(newModelX, 'a');
             recurse(newModelX, 'b');

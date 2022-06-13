@@ -8,12 +8,14 @@
 nav{
     display: flex;
     justify-content:center;
+    background-color: #08081A;
 }
 
 nav a{
-    padding: 20px;
-    margin: 20px;
-}
+    /* padding: 20px;
+    margin: 20px; */
+    color:white;
+} 
 
 
 ul, ul > li {
