@@ -142,7 +142,7 @@ function partieSelected2(){
           document.getElementById('output-area2').value +='Le seul mot appartenant au langage ayant une longueur de 3 est : \tabb';
         }else if (taille > lengthreduction){
           let modelX ="x";
-          for (let i=1;i<taille-lengthreduction+1;i++){
+          for (let i=0 ;i<taille-lengthreduction+1;i++){
             modelX +="x";
           }
           for (let i=1;i<taille-lengthreduction+1;i++){
