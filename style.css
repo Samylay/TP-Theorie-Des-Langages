@@ -6,10 +6,10 @@
 
 body {
     height: 100vh;
-    /* background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-image: url("https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80");
     background-repeat: no-repeat;
     background-size: cover;
-*/
+
 } 
 
 
@@ -46,6 +46,9 @@ nav{
     box-shadow: 0px 0px -15px -15px;
     
 }
+.active{
+    background-color: black;
+}
 
 /*
 rounded corners for selceted tab 
@@ -60,14 +63,25 @@ nav a{
     text-align: center;
     height: 100px;
     padding-top: 30px;
+    
 }
 
+
 #enonce{
-    background-color: rgba(100, 100, 100, 0.4);
+    background-color: rgba(158, 154, 154,0.7);
     padding: 20px;
+    border-radius:20px;
+    margin: 25px;
+    
+}
+
+.title-box{    
+    background-color: rgba(158, 154, 154,0.7);
+    padding: 5px 15px 7px 15px;
     border-radius:20px;
     margin: 5px;
 }
+
 
 
 
@@ -77,12 +91,15 @@ ul, ul > li {
     text-align: left;
     list-style: none;
 }
+
 pre{
     color:black;
 }
 
-h4{
-    text-align: left;
+h4,.membre li{
+    text-align: center;
+    font-size: larger;
+    color:black;
 }
 
 footer{

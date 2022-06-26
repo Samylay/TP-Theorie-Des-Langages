@@ -35,18 +35,16 @@ document.getElementById('nav-partie3-tab').addEventListener("click",partieSelect
 
 ////////////////////////////////////// PAGE DE GARDE ////////////////////////////////////////
 function partieSelected0(){
-  headerSelector.innerHTML='<h2 id="partie" class="main-title" style="text-align: center;height: 100px;padding-top: 30px;">Projet de TP Théorie Des Languages</h2>';
-  enonce.innerHTML = '<ul class="membre"><li><pre style="color:black;">LAMARA Nabil          Groupe 1</pre></li><li><pre style="color:black;">ABDELHAFID Lamine     Groupe 1</pre></li><li><pre style="color:black;">LAYAIDA Samy          Groupe 1</pre></li></ul>';
+  headerSelector.innerHTML='<h2 id="partie" class="main-title"><span class="title-box">Projet de TP Théorie Des Langages</span></h2>';
+  enonce.innerHTML = '<ul class="membre"><li><pre style="color:black;">LAMARA Nabil          Groupe 1</pre></li><li><pre style="color:black;">ABDELHAFID Lamine     Groupe 1</pre></li><li><pre style="color:black;">LAYAIDA Samy          Groupe 1</pre></li></ul><br><br><h4>Sous la direction de <br><br> Mme Baghli</h4><br><br><h4>Année universitaire: 2021/2022</h4>';
   document.getElementById('output-area').innerHTML='';
   document.getElementById('alert-container').innerHTML = '';
-
-
 }
 ////////////////////////////////////// PARTIE 1 ////////////////////////////////////////
 
 function partieSelected1(){
   // Replace the header with Partie 1 Title
-  headerSelector.innerHTML="Partie 1: Manipulation et opérations sur les mots"
+  headerSelector.innerHTML="<span class=\"title-box\">Partie 1: Manipulation et opérations sur les mots<span>"
   document.getElementById('alert-container').innerHTML = '';
 
   //write partie 1 énoncé
@@ -58,7 +56,7 @@ function partieSelected1(){
   // TODO make puissance input area smaller
 
   //Display the Output area
-  document.getElementById('output-area').innerHTML='<div class="form-group" style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-text-area" rows="9"readonly></textarea></div>';
+  document.getElementById('output-area').innerHTML='<div class="form-group" style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><span class="title-box"><strong>Output:</strong></span></h4></label><textarea class="form-control" id="output-text-area" rows="9"readonly></textarea></div>';
 
 
   // si le mot n'appartiens pas au language alors afficher une erreur 
@@ -132,11 +130,11 @@ if(document.getElementById('puissance-input-text').value!="" && document.getElem
 function partieSelected2(){
   document.getElementById('alert-container').innerHTML = '';
 
-  headerSelector.innerHTML="Partie 2 : Langage et grammaires"
+  headerSelector.innerHTML="<span class=\"title-box\">Partie 2 : Langage et grammaires</span>"
   enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit un langage L(G) généré par la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b}</p><p>N={S, A, B, C}</p><p>P : S→AB</p><p>A→aA/bA/ab</p><p>B→bC</p><p>C→aC/bC/ɛ</p><p>Question : Ecrire un programme paramétré qui permet de générer tous les mots de L(G) d’une longueur donnée n (n ≥ 0). Lors de l’évaluation, l’enseignant fixera en entrée n, votre programme devra alors générer tous les mots de L(G) de longueur n.</p>';
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-taille" class="form-control" placeholder="Entrez la taille des mots..."><button type="submit" id="partie2-button" class="btn btn-outline-secondary button-color-control">Générer</button></div></label>';
   
-  document.getElementById('output-area').innerHTML='<div class="form-group" " style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area2" rows="9"readonly></textarea></div>';
+  document.getElementById('output-area').innerHTML='<div class="form-group"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><span class=\"title-box\"><strong>Output:</strong></span></h4></label><textarea class="form-control" id="output-area2" rows="9"readonly></textarea></div>';
   
   //    o.appendChild(document.createTextNode('\u025B')); // epsilon
   //if (~str.indexOf("abb")) to check if abb is contained within the word
@@ -221,12 +219,12 @@ function partieSelected2(){
 function partieSelected3(){
   document.getElementById('alert-container').innerHTML = '';
 
-  headerSelector.innerHTML="Partie 3 : Analyseur syntaxique"
+  headerSelector.innerHTML="<span class=\"title-box\">Partie 3 : Analyseur syntaxique</span>"
 
   enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b}</p><p> N={S} </p><p>P={S→aaSb/Sa/ɛ}</p><p>Question : Ecrire un programme paramétré qui, étant donné un mot quelconque en entrée, vérifie si ce mot appartient au langage L(G). On supposera que ce mot est lexicalement correct, c’est-à-dire qu’il ne comporte que des éléments de l’ensemble T. Lors de l’évaluation, l’enseignant donnera en entrée un mot quelconque et votre programme doit permettre de vérifier si le mot est syntaxiquement correct.</p>'
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-text3" class="form-control" placeholder="entrez le mot..."><button type="submit" id="partie3-button" class="btn btn-outline-secondary button-color-control">Générer</button></div></label>';
 
-  document.getElementById('output-area').innerHTML='<div class="form-group" style="padding: 20px;border-radius:20px;margin: 5px;"><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><strong>Output:</strong></h4></label><textarea class="form-control" id="output-area3" rows="9"readonly></textarea></div>';
+  document.getElementById('output-area').innerHTML='<div class="form-group" s><label for="input-code"><h4 style="padding-top:10px;padding-left:10px;"><span class=\"title-box\"><strong>Output:</strong></span></h4></label><textarea class="form-control" id="output-area3" rows="9"readonly></textarea></div>';
   // IMPLEMENTATION START
   document.getElementById('partie3-button').addEventListener("click", function testPartie3Mot(){
 
