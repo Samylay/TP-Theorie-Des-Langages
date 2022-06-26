@@ -12,7 +12,12 @@
 */
 
 //let headerSelector = document.querySelector('[aria-selected="true"]');
+var tabs = $('.tabs > li');
 
+tabs.on("click", function(){
+  tabs.removeClass('active');
+  $(this).addClass('active');
+});
 
 //load the page according to the class of the header 
 let enonce = document.getElementById('enonce');
@@ -33,6 +38,8 @@ function partieSelected0(){
   headerSelector.innerHTML='<h2 id="partie" class="main-title" style="text-align: center;height: 100px;padding-top: 30px;">Projet de TP Théorie Des Languages</h2>';
   enonce.innerHTML = '<ul class="membre"><li><pre style="color:black;">LAMARA Nabil          Groupe 1</pre></li><li><pre style="color:black;">ABDELHAFID Lamine     Groupe 1</pre></li><li><pre style="color:black;">LAYAIDA Samy          Groupe 1</pre></li></ul>';
   document.getElementById('output-area').innerHTML='';
+  document.getElementById('alert-container').innerHTML = '';
+
 
 }
 ////////////////////////////////////// PARTIE 1 ////////////////////////////////////////
@@ -40,6 +47,7 @@ function partieSelected0(){
 function partieSelected1(){
   // Replace the header with Partie 1 Title
   headerSelector.innerHTML="Partie 1: Manipulation et opérations sur les mots"
+  document.getElementById('alert-container').innerHTML = '';
 
   //write partie 1 énoncé
   enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit l\'alphabet T={a, b, c}, écrire un programme paramétré qui permet de :</p><p>1) Générer le mot miroir d’un mot quelconque de T*. Ce mot sera donné en entrée à votre programme.</p>';
@@ -122,6 +130,8 @@ if(document.getElementById('puissance-input-text').value!="" && document.getElem
 ////////////////////////// PARTIE 2 /////////////////////////////
 
 function partieSelected2(){
+  document.getElementById('alert-container').innerHTML = '';
+
   headerSelector.innerHTML="Partie 2 : Langage et grammaires"
   enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit un langage L(G) généré par la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b}</p><p>N={S, A, B, C}</p><p>P : S→AB</p><p>A→aA/bA/ab</p><p>B→bC</p><p>C→aC/bC/ɛ</p><p>Question : Ecrire un programme paramétré qui permet de générer tous les mots de L(G) d’une longueur donnée n (n ≥ 0). Lors de l’évaluation, l’enseignant fixera en entrée n, votre programme devra alors générer tous les mots de L(G) de longueur n.</p>';
   enonce.innerHTML+='<label for="input" ><div class="input-group"><input type="text" id="input-taille" class="form-control" placeholder="Entrez la taille des mots..."><button type="submit" id="partie2-button" class="btn btn-outline-secondary button-color-control">Générer</button></div></label>';
@@ -136,12 +146,12 @@ function partieSelected2(){
     let taille = document.getElementById('input-taille').value;
     document.getElementById('output-area2').value ='';
     document.getElementById('alert-container').innerHTML = '';
-  
+
    if(taille != ""){
-    
+    /////////////////////////USE SET COMMAND TO SORT THROUGH ELEMENTS AND ONLY KEEP UNIQUE ONES
     if(taille.match(/[^0-9]/g ) == null){
 
-      if(taille >= 3 && taille <= 14){
+      if(taille >= 3 && taille < 15){
         ///////////implementation START
         let startPoint="abb";
         let lengthreduction = 3;
@@ -177,9 +187,8 @@ function partieSelected2(){
           }
           else if (countOfx == 0) {
               numberOfWords = numberOfWords + 1;
-              document.getElementById('output-area2').value += newX +'\t||\t';
-
-          }
+             document.getElementById('output-area2').value += newX +'\t||\t';
+            }
         }
         //implementation END
       
@@ -210,6 +219,8 @@ function partieSelected2(){
 ////////////////////////// PARTIE 3 /////////////////////////////
 
 function partieSelected3(){
+  document.getElementById('alert-container').innerHTML = '';
+
   headerSelector.innerHTML="Partie 3 : Analyseur syntaxique"
 
   enonce.innerHTML='<h4><strong><u>Énoncé:</u></strong></h4><p>Soit la grammaire G=<T, N, S, P> tel que :</p><p>T={a, b}</p><p> N={S} </p><p>P={S→aaSb/Sa/ɛ}</p><p>Question : Ecrire un programme paramétré qui, étant donné un mot quelconque en entrée, vérifie si ce mot appartient au langage L(G). On supposera que ce mot est lexicalement correct, c’est-à-dire qu’il ne comporte que des éléments de l’ensemble T. Lors de l’évaluation, l’enseignant donnera en entrée un mot quelconque et votre programme doit permettre de vérifier si le mot est syntaxiquement correct.</p>'
@@ -227,7 +238,7 @@ function partieSelected3(){
      A constructor that initializes the string that needs to be checked, as well as the string which we will use in order to check the validity
      of the former.
     */
-    function checkString() {
+    function checkString(){
         let counter = 1;
         while (temp.length < toCheck.length+1) {
             if (toCheck.charAt(toCheck.length-counter) == 'b') {
@@ -248,6 +259,7 @@ function partieSelected3(){
             return false;
         }
     }
+
     function expandSOne( S) {
         let position = S.indexOf("S");
         let toBeReturned ;
@@ -262,6 +274,7 @@ function partieSelected3(){
         }
         return toBeReturned;
     }
+
     function expandSTwo(S) {
         let position = S.indexOf("S");
         let toBeReturned = new String();
@@ -301,4 +314,7 @@ document.getElementById('input-text3').addEventListener("keypress", function(eve
     }
   });
 }
+
+
+
 
