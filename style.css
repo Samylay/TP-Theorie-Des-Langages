@@ -1,15 +1,16 @@
 *{
     box-sizing: border-box;
     margin : 0;
-    padding : 0;    
+    padding : 0; 
 } 
 
 body {
     height: 100vh;
-    background-image: url("https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80");
+    background-image: url("jonny-james-3no88nSvK88-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
+    font-weight: 550;
+    
 } 
 
 
@@ -23,6 +24,8 @@ nav{
     justify-content:center;
     background-color: #1d1d3f;
     box-shadow: 0px 0px -15px -15px;
+    font-weight: 500;
+
 }
 
 
@@ -46,15 +49,7 @@ nav{
     box-shadow: 0px 0px -15px -15px;
     
 }
-.active{
-    background-color: black;
-}
 
-/*
-rounded corners for selceted tab 
-tab separations 
-tabline 
-*/
 nav a{
     color:white;
 } 
@@ -68,15 +63,15 @@ nav a{
 
 
 #enonce{
-    background-color: rgba(158, 154, 154,0.7);
+    background-color: rgba(182, 176, 176, 0.5);
     padding: 20px;
     border-radius:20px;
     margin: 25px;
-    
+    color: black;
 }
 
 .title-box{    
-    background-color: rgba(158, 154, 154,0.7);
+    background-color: rgba(182, 176, 176, 0.5);
     padding: 5px 15px 7px 15px;
     border-radius:20px;
     margin: 5px;
